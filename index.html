@@ -230,6 +230,14 @@
                 subTaskButton.style.display = 'inline-block';
                 const subTaskItem = taskItem.querySelector('.sub-task-handler');
                 const subTaskText = subTaskItem.value.trim();
+
+                //remove the input container
+                const tempSubTaskInputContainer = taskItem.querySelector('.sub-task-input-temp')
+                tempSubTaskInputContainer.remove();
+
+                if(subTaskText == ""){
+                    return;
+                }
                 //we are using the table structure now so we will be adding the row at the end of the list
                 const taskTable = taskItem.querySelector('#eachTask');
                 const subTaskRow = taskTable.insertRow(-1);
@@ -260,9 +268,7 @@
                     }, 2500);
                 }
             })
-            //remove the container after the subtask is added
-                const tempSubTaskInputContainer = taskItem.querySelector('.sub-task-input-temp')
-                tempSubTaskInputContainer.remove();
+            
             }
             /* Sub Task Section End */
 
